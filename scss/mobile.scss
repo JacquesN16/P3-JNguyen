@@ -1,0 +1,250 @@
+@use './variables.scss';
+@media (max-width: 768px){
+    body{
+        font-family: variables.$text-font;
+        padding: 0;
+        margin: 0;
+    }
+    
+    #index-header{
+        #main-logo{
+            width: 42%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        #location-search{
+            font-family: variables.$text-font;
+            background-color: variables.$bgc-grey;
+            padding: 20px 110px;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: inset 0 2px 3px 0 #A1A1A1;
+            font-weight: 500;
+            color: #5e5e5e;
+        }
+
+        #explore{
+            text-align: center;
+            padding: 20px 40px;
+            background-color: variables.$bgc-light-grey;
+            h2{
+                width: 90%;
+            }
+            p{
+                font-weight: 300;
+            }
+            button{
+                color:white;
+                letter-spacing: 0.5px;
+                font-weight: 500;
+                padding: 15px 24px;
+                border-radius: 30px;
+                border:none;
+                background: linear-gradient(345deg, variables.$color-primary 35%, variables.$color-secondary 100%);
+                box-shadow: 0 5px 4px 2px #b6b6b6;
+            }
+        }
+    } 
+   
+
+    #index-main{
+        h3{
+            font-size: 22px;
+        }
+        .function {
+            padding: 5px 30px;
+            article{
+                display: block;
+                background-color: variables.$bgc-light-grey;
+                height: 60px;
+                margin-bottom: 10px;
+                display: flex;
+                padding: 0 45px;
+                justify-content: start;
+                align-items: center;
+                border-radius: 20px;
+                position: relative;
+                font-size: 18px;
+
+                &::before{
+                    display: inline;
+                    content: '';
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    background: linear-gradient(345deg, variables.$color-primary 35%, variables.$color-secondary 100%);
+                    position: absolute;
+                    left: -15px;
+                    color:white;
+                    text-align: center;
+                    vertical-align: middle;
+                    line-height: 30px
+                }
+
+                h6{
+                    margin-left: 10px;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+            #choose::before{
+                content: '1';
+            }
+            #menu::before{
+                content: '2';
+            }
+            #deguster::before{
+                content: '3';
+            }    
+        }
+
+        .restaurants {
+            background-color: variables.$bgc-light-grey;
+            height: 1100px;
+            padding-top: 10px;
+            h3{
+                margin: 20px 50px;
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+                figure{
+                    height: 240px;
+                    width: 90%;
+                    margin: 0 auto;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    background-color: variables.$bgc-white;
+                    margin-bottom: 15px;
+                    position: relative;
+                    img{
+                        object-position: center;
+                        object-fit: cover;
+                        height: 170px;
+                        width: 100%;
+                    }
+                    figcaption{
+                        height: calc(100% - 170px);
+                        display: flex;
+                        justify-content: space-between;
+                        align-content: center;
+                        padding: 0 15px ;
+                        
+                        
+                        div{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            
+                            h5{
+                                font-size: 20px;
+                                margin: 0;
+                                
+                            }
+                            p{
+                                font-size: 16px;
+                                margin: 0;
+                               
+                            }
+                        }
+                        i{
+                            display: inline;
+                            margin: auto 0;
+                            font-size: 20px;
+                            cursor: pointer;   
+                        }  
+                    }
+                    &::after{
+                        display: block;
+                        content:'Nouveau';
+                        background-color: variables.$color-tertiary;
+                        height: 20px;
+                        font-size: 12px;
+                        color: green;
+                        padding: 6px 6px 0;
+                        border-radius: 4px;
+                        position: absolute;
+                        top: 10px;
+                        right: 5px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    #index-footer{
+        background-color: variables.$bgc-light-black;
+        height: 250px;
+        width: 100%;
+        color: #fff;
+        padding-top: 20px;
+        padding-left: 20px;
+        object-position:left;
+        #img-container{
+            display: flex;
+            justify-content: start;
+            transform: scale(0.5,0.5) translate(-50%);
+            img{
+                filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(277deg) brightness(112%) contrast(104%);
+            }
+            
+        }
+        p{
+            i{
+                width: 20px;
+                margin-right: 10px;
+            }
+        }
+        
+    }
+
+    #menu-a-la-francaise-header{
+        display: flex;
+        i{
+            display: block;
+            margin-top: 20px;
+            margin-right: 50px;
+            margin-left: 20px;
+        }
+        #menu-a-la-francaise-logo{
+            width: 42%;
+            height: auto;
+            display: block;
+            margin-top: 20px;
+            margin-left: 30px;
+        }
+    }
+
+    #menu-a-la-francaise-footer{
+        background-color: variables.$bgc-light-black;
+        height: 250px;
+        width: 100%;
+        color: #fff;
+        padding-top: 20px;
+        padding-left: 20px;
+        object-position:left;
+        #img-container{
+            display: flex;
+            justify-content: start;
+            transform: scale(0.5,0.5) translate(-50%);
+            img{
+                filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(277deg) brightness(112%) contrast(104%);
+            }
+        }
+        p{
+            i{
+                width: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+    #menu-a-la-francaise-main{
+        img{
+            width: 100%;
+        }
+    }
+    
+}
