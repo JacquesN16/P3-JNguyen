@@ -181,16 +181,22 @@
     margin-right: 10px;
   }
 
-  #menu-a-la-francaise-header {
+  #menu-header {
     display: flex;
+    padding-bottom: 10px;
+    background-color: #e7e7e7;
   }
-  #menu-a-la-francaise-header i {
+  #menu-header a {
+    text-decoration: none;
+    color: inherit;
+  }
+  #menu-header a i {
     display: block;
     margin-top: 20px;
     margin-right: 50px;
     margin-left: 20px;
   }
-  #menu-a-la-francaise-header #menu-a-la-francaise-logo {
+  #menu-header #menu-logo {
     width: 42%;
     height: auto;
     display: block;
@@ -198,30 +204,143 @@
     margin-left: 30px;
   }
 
-  #menu-a-la-francaise-footer {
+  #menu-main {
+    display: flex;
+    flex-direction: column;
+    background-color: #e7e7e7;
+  }
+  #menu-main img {
+    width: 100%;
+    z-index: 1;
+    height: 400px;
+  }
+  #menu-main #title {
+    background-color: #e7e7e7;
+    position: relative;
+    border-radius: 25px;
+    top: -50px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  #menu-main #title h5 {
+    margin: 0;
+    font-family: "Shrikhand", cursive;
+    font-size: 32px;
+    font-weight: 300;
+  }
+  #menu-main #title i {
+    align-items: center;
+    font-size: 28px;
+  }
+  #menu-main #menus {
+    background-color: #e7e7e7;
+    padding: 20px;
+  }
+  #menu-main #menus section {
+    margin-bottom: 40px;
+  }
+  #menu-main #menus section h5 {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+  #menu-main #menus section h5::after {
+    content: "";
+    display: block;
+    background-color: #99E2D0;
+    width: 14%;
+    height: 3px;
+  }
+  #menu-main #menus section div {
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 10px -5px #353535;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  #menu-main #menus section div h6 {
+    margin: 0;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #353535;
+  }
+  #menu-main #menus section div p {
+    color: #353535;
+    margin: 0;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  #menu-main #menus section div p #price {
+    font-weight: bold;
+  }
+  #menu-main #menus section div::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    background-color: #99E2D0;
+    top: 0;
+    right: 0;
+    transition: 0.3s ease;
+  }
+  #menu-main #menus section div:active p {
+    width: 84%;
+    transition: 0.3s ease;
+  }
+  #menu-main #menus section div:active::after {
+    content: "";
+    display: block;
+    width: 16%;
+    height: 100%;
+    position: absolute;
+    background-color: #99E2D0;
+    top: 0;
+    right: 0;
+  }
+  #menu-main #order {
+    color: white;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    padding: 15px 24px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(345deg, #9356DC 35%, #FF79DA 100%);
+    box-shadow: 0 5px 4px 2px #b6b6b6;
+    width: 50%;
+    height: 50px;
+    margin: 0 auto 80px;
+    cursor: pointer;
+  }
+
+  #menu-footer {
     background-color: #353535;
     height: 250px;
-    width: 100%;
     color: #fff;
     padding-top: 20px;
     padding-left: 20px;
     object-position: left;
   }
-  #menu-a-la-francaise-footer #img-container {
+  #menu-footer #img-container {
     display: flex;
     justify-content: start;
     transform: scale(0.5, 0.5) translate(-50%);
   }
-  #menu-a-la-francaise-footer #img-container img {
+  #menu-footer #img-container img {
     filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(277deg) brightness(112%) contrast(104%);
   }
-  #menu-a-la-francaise-footer p i {
+  #menu-footer p i {
     width: 20px;
     margin-right: 10px;
-  }
-
-  #menu-a-la-francaise-main img {
-    width: 100%;
   }
 }
 
