@@ -1,4 +1,112 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Shrikhand&display=swap");
+/**
+ * ----------------------------------------
+ * animation scale-in-center
+ * ----------------------------------------
+ */
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/**
+ * ----------------------------------------
+ * animation rotate
+ * ----------------------------------------
+ */
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/**
+ * ----------------------------------------
+ * loader
+ * ----------------------------------------
+ */
+@keyframes hide-spinner {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 10000;
+  animation: hide-spinner 3s 1;
+  visibility: hidden;
+}
+.loader .loader-circle {
+  border: 10px solid #9356DC;
+  border-top: 10px solid #FF79DA;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  animation: spin linear 1.5s 2;
+}
+
+.heart-icon {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+.heart-icon:hover {
+  color: #FF79DA;
+}
+.heart-icon:active {
+  color: #FF79DA;
+}
+.heart-icon .not-liked {
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+.heart-icon .liked {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #FF79DA;
+  z-index: 2;
+  background: linear-gradient(345deg, #9356DC 35%, #FF79DA 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+}
+.heart-icon .liked:hover {
+  opacity: 1;
+}
+.heart-icon .liked:active {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   body {
     font-family: "Roboto", sans-serif;
@@ -162,7 +270,6 @@
   #index-footer {
     background-color: #353535;
     height: 250px;
-    width: 100%;
     color: #fff;
     padding-top: 20px;
     padding-left: 20px;
@@ -231,9 +338,9 @@
     font-size: 32px;
     font-weight: 300;
   }
-  #menu-main #title i {
+  #menu-main #title .heart-icon {
     align-items: center;
-    font-size: 28px;
+    font-size: 18px;
   }
   #menu-main #menus {
     background-color: #e7e7e7;
@@ -256,8 +363,7 @@
     width: 14%;
     height: 3px;
   }
-  #menu-main #menus section div {
-    padding: 8px;
+  #menu-main #menus section .list-item {
     background-color: #fff;
     border-radius: 15px;
     margin-bottom: 10px;
@@ -265,47 +371,81 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
   }
-  #menu-main #menus section div h6 {
+  #menu-main #menus section .list-item .menu-info {
+    background-color: #fff;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+    width: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  #menu-main #menus section .list-item .menu-info h4 {
     margin: 0;
     font-size: 18px;
     margin-bottom: 5px;
     color: #353535;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
-  #menu-main #menus section div p {
+  #menu-main #menus section .list-item .menu-info p {
     color: #353535;
     margin: 0;
     margin-bottom: 5px;
-    display: flex;
     justify-content: space-between;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
-  #menu-main #menus section div p #price {
-    font-weight: bold;
+  #menu-main #menus section .list-item .price-menu {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 8px;
   }
-  #menu-main #menus section div::after {
-    content: "";
-    display: block;
+  #menu-main #menus section .list-item .check-icon {
     width: 0%;
-    height: 100%;
-    position: absolute;
     background-color: #99E2D0;
-    top: 0;
-    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu-main #menus section .list-item .check-icon i {
+    color: white;
+    border-radius: 50%;
+    width: 27px;
+    height: 27px;
+    transform: rotate(-180deg);
+    transition-duration: 0.5s;
+    font-size: 20px;
+  }
+  #menu-main #menus section .list-item:active .menu-info {
+    width: 60%;
     transition: 0.3s ease;
   }
-  #menu-main #menus section div:active p {
-    width: 84%;
+  #menu-main #menus section .list-item:active .check-icon {
+    width: 20%;
     transition: 0.3s ease;
   }
-  #menu-main #menus section div:active::after {
-    content: "";
-    display: block;
-    width: 16%;
-    height: 100%;
-    position: absolute;
-    background-color: #99E2D0;
-    top: 0;
-    right: 0;
+  #menu-main #menus section .list-item:active .check-icon i {
+    transform: rotate(0deg);
+  }
+  #menu-main #menus section .one {
+    animation: scale-in-center 0.5s;
+  }
+  #menu-main #menus section .two {
+    animation: scale-in-center 0.5s 0.5s;
+  }
+  #menu-main #menus section .three {
+    animation: scale-in-center 0.5s 1s;
+  }
+  #menu-main #menus section .four {
+    animation: scale-in-center 0.5s both 1.5s;
   }
   #menu-main #order {
     color: white;
@@ -337,6 +477,811 @@
   }
   #menu-footer #img-container img {
     filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(277deg) brightness(112%) contrast(104%);
+  }
+  #menu-footer p i {
+    width: 20px;
+    margin-right: 10px;
+  }
+}
+@media (min-width: 992px) {
+  body {
+    font-family: "Roboto", sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+
+  #index-header #main-logo {
+    width: 20%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+  }
+  #index-header #location-search {
+    font-family: "Roboto", sans-serif;
+    background-color: #e7e7e7;
+    padding: 20px 110px;
+    display: flex;
+    justify-content: center;
+    box-shadow: inset 0 2px 3px 0 #A1A1A1;
+    font-weight: 500;
+    color: #5e5e5e;
+  }
+  #index-header #explore {
+    text-align: center;
+    padding: 40px;
+    background-color: #f2f2f2;
+  }
+  #index-header #explore h2 {
+    width: 100%;
+    font-size: 50px;
+    margin: 0;
+  }
+  #index-header #explore p {
+    font-weight: 300;
+    font-size: 24px;
+  }
+  #index-header #explore button {
+    color: white;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 15px 24px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(345deg, #9356DC 35%, #FF79DA 100%);
+    box-shadow: 0 5px 4px 2px #b6b6b6;
+    width: 24%;
+    height: 70px;
+  }
+  #index-header #explore button:hover {
+    transform: scale(1.1);
+  }
+
+  #index-main h3 {
+    font-size: 40px;
+  }
+  #index-main .function {
+    padding: 5px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  #index-main .function h3 {
+    width: 100%;
+  }
+  #index-main .function article {
+    display: block;
+    background-color: #f2f2f2;
+    height: 60px;
+    margin-bottom: 10px;
+    display: flex;
+    padding: 0 45px;
+    justify-content: start;
+    align-items: center;
+    border-radius: 20px;
+    position: relative;
+    font-size: 18px;
+    width: 20%;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  #index-main .function article::before {
+    display: inline;
+    content: "";
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: linear-gradient(345deg, #9356DC 35%, #FF79DA 100%);
+    position: absolute;
+    left: -15px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+  }
+  #index-main .function article:hover {
+    background-color: #f2eafb;
+  }
+  #index-main .function article:hover i {
+    color: #9356DC;
+  }
+  #index-main .function article h6 {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  #index-main .function #choose::before {
+    content: "1";
+  }
+  #index-main .function #menu::before {
+    content: "2";
+  }
+  #index-main .function #deguster::before {
+    content: "3";
+  }
+  #index-main .restaurants {
+    background-color: #f2f2f2;
+    height: 950px;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  #index-main .restaurants h3 {
+    margin: 40px 50px;
+    width: 100%;
+    height: 40px;
+    font-size: 40px;
+  }
+  #index-main .restaurants a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 45%;
+  }
+  #index-main .restaurants a figure {
+    height: 360px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 45px;
+    position: relative;
+    transition: 0.2s ease;
+  }
+  #index-main .restaurants a figure img {
+    object-position: center;
+    object-fit: cover;
+    height: 250px;
+    width: 100%;
+  }
+  #index-main .restaurants a figure figcaption {
+    height: calc(100% - 250px);
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 0 15px;
+  }
+  #index-main .restaurants a figure figcaption div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #index-main .restaurants a figure figcaption div h5 {
+    font-size: 20px;
+    margin: 0;
+  }
+  #index-main .restaurants a figure figcaption div p {
+    font-size: 16px;
+    margin: 0;
+  }
+  #index-main .restaurants a figure figcaption .heart-icon {
+    margin-top: 20px;
+  }
+  #index-main .restaurants a figure::after {
+    display: block;
+    content: "Nouveau";
+    background-color: #99E2D0;
+    height: 20px;
+    font-size: 12px;
+    color: green;
+    padding: 6px 6px 0;
+    border-radius: 4px;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+  }
+  #index-main .restaurants a figure:hover {
+    box-shadow: 0 5px 4px 2px #b6b6b6;
+    transform: scale(1.05);
+  }
+
+  #index-footer {
+    background-color: #353535;
+    height: 80px;
+    display: flex;
+    color: #fff;
+    padding-top: 20px;
+    padding-left: 20px;
+    object-position: left;
+  }
+  #index-footer #img-container {
+    width: 20%;
+    display: flex;
+    justify-content: start;
+    transform: scale(0.5, 0.5) translate(-50%);
+  }
+  #index-footer #img-container img {
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(277deg) brightness(112%) contrast(104%);
+  }
+  #index-footer p {
+    display: flex;
+    align-items: center;
+    width: 20%;
+  }
+  #index-footer p i {
+    width: 20px;
+    margin-right: 10px;
+  }
+
+  #menu-header {
+    display: flex;
+    padding-bottom: 10px;
+    background-color: #e7e7e7;
+    justify-content: center;
+  }
+  #menu-header a {
+    text-decoration: none;
+    color: inherit;
+  }
+  #menu-header a i {
+    display: block;
+    margin-top: 20px;
+    margin-right: 50px;
+    margin-left: 20px;
+  }
+  #menu-header #menu-logo {
+    width: 20%;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+
+  #menu-main {
+    display: flex;
+    flex-direction: column;
+    background-color: #e7e7e7;
+  }
+  #menu-main img {
+    display: none;
+  }
+  #menu-main #title {
+    background-color: #e7e7e7;
+    border-radius: 25px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  #menu-main #title h5 {
+    margin: 0;
+    font-family: "Shrikhand", cursive;
+    font-size: 32px;
+    font-weight: 300;
+  }
+  #menu-main #title .heart-icon {
+    margin-left: 20px;
+    align-items: center;
+    font-size: 18px;
+  }
+  #menu-main #menus {
+    background-color: #e7e7e7;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  #menu-main #menus section {
+    width: 30%;
+    margin-bottom: 40px;
+  }
+  #menu-main #menus section h5 {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+  #menu-main #menus section h5::after {
+    content: "";
+    display: block;
+    background-color: #99E2D0;
+    width: 14%;
+    height: 3px;
+  }
+  #menu-main #menus section .list-item {
+    background-color: #fff;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 10px -5px #353535;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+  }
+  #menu-main #menus section .list-item .menu-info {
+    background-color: #fff;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+    width: 80%;
+  }
+  #menu-main #menus section .list-item .menu-info h4 {
+    margin: 0;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #353535;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  #menu-main #menus section .list-item .menu-info p {
+    color: #353535;
+    margin: 0;
+    margin-bottom: 5px;
+    justify-content: space-between;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  #menu-main #menus section .list-item .price-menu {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 8px;
+  }
+  #menu-main #menus section .list-item .check-icon {
+    width: 0%;
+    background-color: #99E2D0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu-main #menus section .list-item .check-icon i {
+    color: white;
+    border-radius: 50%;
+    width: 27px;
+    height: 27px;
+    transform: rotate(-180deg);
+    transition-duration: 0.5s;
+    font-size: 20px;
+  }
+  #menu-main #menus section .list-item:hover .menu-info {
+    width: 60%;
+    transition: 0.3s ease;
+  }
+  #menu-main #menus section .list-item:hover .check-icon {
+    width: 20%;
+    transition: 0.3s ease;
+  }
+  #menu-main #menus section .list-item:hover .check-icon i {
+    transform: rotate(0deg);
+  }
+  #menu-main #menus section .one {
+    animation: scale-in-center 0.5s;
+  }
+  #menu-main #menus section .two {
+    animation: scale-in-center 0.5s 0.5s;
+  }
+  #menu-main #menus section .three {
+    animation: scale-in-center 0.5s 1s;
+  }
+  #menu-main #menus section .four {
+    animation: scale-in-center 0.5s both 1.5s;
+  }
+  #menu-main #order {
+    color: white;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    padding: 15px 24px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(345deg, #9356DC 35%, #FF79DA 100%);
+    box-shadow: 0 5px 4px 2px #b6b6b6;
+    width: 50%;
+    height: 50px;
+    margin: 0 auto 80px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  #menu-main #order:hover {
+    transform: scale(1.1);
+  }
+
+  #menu-footer {
+    background-color: #353535;
+    height: 80px;
+    display: flex;
+    color: #fff;
+    padding-top: 20px;
+    padding-left: 20px;
+    object-position: left;
+  }
+  #menu-footer #img-container {
+    width: 20%;
+    display: flex;
+    justify-content: start;
+    transform: scale(0.5, 0.5) translate(-50%);
+  }
+  #menu-footer #img-container img {
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(277deg) brightness(112%) contrast(104%);
+  }
+  #menu-footer p {
+    display: flex;
+    align-items: center;
+    width: 20%;
+  }
+  #menu-footer p i {
+    width: 20px;
+    margin-right: 10px;
+  }
+}
+@media (max-width: 992px) and (min-width: 768px) {
+  body {
+    font-family: "Roboto", sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+
+  #index-header #main-logo {
+    width: 42%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+  }
+  #index-header #location-search {
+    font-family: "Roboto", sans-serif;
+    background-color: #e7e7e7;
+    padding: 20px 110px;
+    display: flex;
+    justify-content: center;
+    box-shadow: inset 0 2px 3px 0 #A1A1A1;
+    font-weight: 500;
+    color: #5e5e5e;
+  }
+  #index-header #location-search i {
+    margin-right: 10px;
+  }
+  #index-header #explore {
+    text-align: center;
+    padding: 20px 40px;
+    background-color: #f2f2f2;
+  }
+  #index-header #explore h2 {
+    width: 90%;
+  }
+  #index-header #explore p {
+    font-weight: 300;
+  }
+  #index-header #explore button {
+    color: white;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    padding: 15px 24px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(345deg, #9356DC 35%, #FF79DA 100%);
+    box-shadow: 0 5px 4px 2px #b6b6b6;
+  }
+
+  #index-main h3 {
+    font-size: 22px;
+  }
+  #index-main .function {
+    padding: 5px 30px;
+  }
+  #index-main .function article {
+    display: block;
+    background-color: #f2f2f2;
+    height: 60px;
+    margin-bottom: 10px;
+    display: flex;
+    padding: 0 45px;
+    justify-content: start;
+    align-items: center;
+    border-radius: 20px;
+    position: relative;
+    font-size: 18px;
+  }
+  #index-main .function article::before {
+    display: inline;
+    content: "";
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: linear-gradient(345deg, #9356DC 35%, #FF79DA 100%);
+    position: absolute;
+    left: -15px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+  }
+  #index-main .function article h6 {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  #index-main .function #choose::before {
+    content: "1";
+  }
+  #index-main .function #menu::before {
+    content: "2";
+  }
+  #index-main .function #deguster::before {
+    content: "3";
+  }
+  #index-main .restaurants {
+    background-color: #f2f2f2;
+    height: 1100px;
+    padding-top: 10px;
+  }
+  #index-main .restaurants h3 {
+    margin: 20px 50px;
+  }
+  #index-main .restaurants a {
+    text-decoration: none;
+    color: inherit;
+  }
+  #index-main .restaurants a figure {
+    height: 240px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  #index-main .restaurants a figure img {
+    object-position: center;
+    object-fit: cover;
+    height: 170px;
+    width: 100%;
+  }
+  #index-main .restaurants a figure figcaption {
+    height: calc(100% - 170px);
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 0 15px;
+  }
+  #index-main .restaurants a figure figcaption div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #index-main .restaurants a figure figcaption div h5 {
+    font-size: 20px;
+    margin: 0;
+  }
+  #index-main .restaurants a figure figcaption div p {
+    font-size: 16px;
+    margin: 0;
+  }
+  #index-main .restaurants a figure figcaption i {
+    display: inline;
+    margin: auto 0;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  #index-main .restaurants a figure::after {
+    display: block;
+    content: "Nouveau";
+    background-color: #99E2D0;
+    height: 20px;
+    font-size: 12px;
+    color: green;
+    padding: 6px 6px 0;
+    border-radius: 4px;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+  }
+
+  #index-footer {
+    background-color: #353535;
+    height: 150px;
+    color: #fff;
+    padding-top: 20px;
+    padding-left: 20px;
+    object-position: left;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #index-footer #img-container {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    transform: scale(0.5, 0.5) translate(-50%);
+  }
+  #index-footer #img-container img {
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(277deg) brightness(112%) contrast(104%);
+  }
+  #index-footer p {
+    width: 50%;
+  }
+  #index-footer p i {
+    width: 20px;
+    margin-right: 10px;
+  }
+
+  #menu-header {
+    display: flex;
+    padding-bottom: 10px;
+    background-color: #e7e7e7;
+  }
+  #menu-header a {
+    text-decoration: none;
+    color: inherit;
+  }
+  #menu-header a i {
+    display: block;
+    margin-top: 20px;
+    margin-right: 50px;
+    margin-left: 20px;
+  }
+  #menu-header #menu-logo {
+    width: 42%;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+
+  #menu-main {
+    display: flex;
+    flex-direction: column;
+    background-color: #e7e7e7;
+  }
+  #menu-main img {
+    width: 100%;
+    z-index: 1;
+    height: 400px;
+  }
+  #menu-main #title {
+    background-color: #e7e7e7;
+    position: relative;
+    border-radius: 25px;
+    top: -50px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  #menu-main #title h5 {
+    margin: 0;
+    font-family: "Shrikhand", cursive;
+    font-size: 32px;
+    font-weight: 300;
+  }
+  #menu-main #title .heart-icon {
+    align-items: center;
+    font-size: 18px;
+  }
+  #menu-main #menus {
+    background-color: #e7e7e7;
+    padding: 20px;
+  }
+  #menu-main #menus section {
+    margin-bottom: 40px;
+  }
+  #menu-main #menus section h5 {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+  #menu-main #menus section h5::after {
+    content: "";
+    display: block;
+    background-color: #99E2D0;
+    width: 14%;
+    height: 3px;
+  }
+  #menu-main #menus section .list-item {
+    background-color: #fff;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 10px -5px #353535;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+  }
+  #menu-main #menus section .list-item .menu-info {
+    background-color: #fff;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+    width: 90%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  #menu-main #menus section .list-item .menu-info h4 {
+    margin: 0;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #353535;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  #menu-main #menus section .list-item .menu-info p {
+    color: #353535;
+    margin: 0;
+    margin-bottom: 5px;
+    justify-content: space-between;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  #menu-main #menus section .list-item .price-menu {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 8px;
+  }
+  #menu-main #menus section .list-item .check-icon {
+    width: 0%;
+    background-color: #99E2D0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu-main #menus section .list-item .check-icon i {
+    color: white;
+    border-radius: 50%;
+    width: 27px;
+    height: 27px;
+    transform: rotate(-180deg);
+    transition-duration: 0.5s;
+    font-size: 20px;
+  }
+  #menu-main #menus section .list-item:active .menu-info {
+    width: 60%;
+    transition: 0.3s ease;
+  }
+  #menu-main #menus section .list-item:active .check-icon {
+    width: 20%;
+    transition: 0.3s ease;
+  }
+  #menu-main #menus section .list-item:active .check-icon i {
+    transform: rotate(0deg);
+  }
+  #menu-main #order {
+    color: white;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    padding: 15px 24px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(345deg, #9356DC 35%, #FF79DA 100%);
+    box-shadow: 0 5px 4px 2px #b6b6b6;
+    width: 50%;
+    height: 50px;
+    margin: 0 auto 80px;
+    cursor: pointer;
+  }
+
+  #menu-footer {
+    background-color: #353535;
+    height: 150px;
+    color: #fff;
+    padding-top: 20px;
+    padding-left: 20px;
+    object-position: left;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #menu-footer #img-container {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    transform: scale(0.5, 0.5) translate(-50%);
+  }
+  #menu-footer #img-container img {
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(277deg) brightness(112%) contrast(104%);
+  }
+  #menu-footer p {
+    width: 50%;
   }
   #menu-footer p i {
     width: 20px;

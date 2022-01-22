@@ -7,3 +7,126 @@ $bgc-white: #fff;
 $bgc-grey: #e7e7e7;
 $bgc-light-grey: #f2f2f2;
 $bgc-light-black: #353535;
+
+// ANIMATION
+
+
+
+/**
+ * ----------------------------------------
+ * animation scale-in-center
+ * ----------------------------------------
+ */
+  @keyframes scale-in-center {
+    0% {
+    transform: scale(0);
+    opacity: 1;
+    }
+    100% {
+    transform: scale(1);
+    opacity: 1;
+    }
+  }
+
+  
+
+/**
+ * ----------------------------------------
+ * animation rotate
+ * ----------------------------------------
+ */
+  @keyframes rotate{
+    0% {
+              transform: rotate(0);
+    }
+    100% {
+              transform: rotate(360deg);
+    }
+  }
+
+/**
+ * ----------------------------------------
+ * loader
+ * ----------------------------------------
+ */
+ @keyframes hide-spinner {
+    0% {
+      visibility: visible;
+    }
+    100% {
+      visibility: hidden;
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+// loader
+  .loader {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: hsla(0, 0%, 100%, 0.9);
+    z-index: 10000;
+    animation: hide-spinner 3s 1;
+    visibility: hidden;
+    .loader-circle {
+      border: 10px solid $color-primary;
+      border-top: 10px solid $color-secondary;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      animation: spin linear 1.5s 2;
+    }
+  }
+// heart 
+
+.heart-icon {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-secondary;
+  }
+  &:active {
+    color: $color-secondary;
+  }
+
+
+  .not-liked {
+    position: absolute;
+    top: 10px;
+    left: 0;
+  }
+  .liked {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: $color-secondary;
+    z-index: 2;
+    background: linear-gradient(345deg, $color-primary 35%, $color-secondary 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+    }
+    &:active {
+      opacity: 1;
+    }
+  }
+}
+  

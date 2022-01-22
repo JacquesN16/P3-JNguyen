@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>ohmyfood</title>
+    <title>La palette du goût</title>
 </head>
 <body>
     <header id="menu-header">
@@ -20,62 +20,102 @@
                 >
         <div id="title">
             <h5>La palette du goût</h5>
-            <i class="far fa-heart" tabindex="1"></i>
+            <div class="heart-icon">
+              <i class="fas fa-heart fa-2x liked"></i>
+              <i class="far fa-heart fa-2x not-liked"></i>
+          </div>
         </div>
 
         <div id="menus">
             <section id="entrees">
                 <h5>entrées</h5>
-                <div>
-                    <h6>Fricassée d'escargot</h6>
-                    <p><span>Au piment d'Espelette</span> <span id="price">25€</span></p>
-                </div>
-                <div>
-                    <h6>Foie gras de canard mi-cuit</h6>
-                    <p><span>Et ses copeaux de truffe noire</span><span id="price">35€</span></p>
-                </div>
-                <div>
-                    <h6>Oeuf au plat</h6>
-                    <p><span>Assaisonné à la truffe sur lit de caviar</span> <span id="price">20€</span></p>
-                </div>
+                <article class=" list-item one">
+                    <div class="menu-info">
+                      <h4>Fricassée d'escargot</h4>
+                      <p>Au piment d'Espelette</p>
+                    </div>
+                      <div class="price-menu"><strong>25 &euro;</strong></div>
+                      <div class="check-icon">
+                        <i class="far fa-check-circle"></i>
+                      </div>
+                  </article>
+                  <article class=" list-item two">
+                    <div class="menu-info">
+                      <h4>Foie gras de canard mi-cuit</h4>
+                      <p>Et ses copeaux de truffe noire</p>
+                    </div>
+                      <div class="price-menu"><strong>35 &euro;</strong></div>
+                      <div class="check-icon"><i class="far fa-check-circle"></i></div>
+                  </article>
+                  <article class=" list-item three">
+                    <div class="menu-info">
+                      <h4>Oeuf au plat</h4>
+                      <p>Assaisonné à la truffe sur lit de poireaux</p>
+                    </div>
+                      <div class="price-menu"><strong>20 &euro;</strong></div>
+                      <div class="check-icon"><i class="far fa-check-circle"></i></div>
+                  </article>
             </section>
             <section id="plats">
                 <h5>plats</h5>
-                <div>
-                    <h6>Filet de boeuf aux herbes</h6>
-                    <p><span>Accompagné de sa ribambelle de légumes</span> <span id="price">40€</span></p>
-                </div>
-                <div>
-                    <h6>Parmentier de queue de boeuf</h6>
-                    <p><span>À la truffe noire sur sa purée de panais</span> <span id="price">35€</span></p>
-                </div>
-                <div>
-                    <h6>Filet de turbot</h6>
-                    <p><span>Aux agrumes</span> <span id="price">44€</span></p>
-                </div>
+                <article class=" list-item one">
+                    <div class="menu-info">
+                      <h4>Filet de boeuf aux herbes</h4>
+                      <p>Accompagné de sa ribambelle de légumes</p>
+                    </div>
+                      <div class="price-menu"><strong>40 &euro;</strong></div>
+                      <div class="check-icon"><i class="far fa-check-circle"></i></div>
+                  </article>
+                  <article class=" list-item two">
+                    <div class="menu-info">
+                      <h4>Parmentier de queue de boeuf</h4>
+                      <p>A la truffe noire sur sa purée de panais</p>
+                    </div>
+                      <div class="price-menu"><strong>35 &euro;</strong></div>
+                      <div class="check-icon"><i class="far fa-check-circle"></i></div>
+                  </article>
+                  <article class=" list-item three">
+                    <div class="menu-info">
+                      <h4>Filet de Turbot</h4>
+                      <p>Aux agrumes</p>
+                    </div>
+                      <div class="price-menu"><strong>44 &euro;</strong></div>
+                      <div class="check-icon"><i class="far fa-check-circle"></i></div>
+                  </article>
             </section>
             <section id="desserts">
                 <h5>desserts</h5>
-                <div>
-                    <h6>Paris-Brest</h6>
-                    <p><span>Revisité</span><span id="price">18€</span></p>
-                    
-                </div>
-                <div>
-                    <h6>Macaron au chocolat d'exception </h6>
-                    <p><span>Et glace à la vanille de Madagascar</span><span id="price">22€</span></p>
-                </div>
-                <div>
-                    <h6>Mousse au chocolat</h6>
-                    <p><span>Au piment d'Espelette et à la truffe noire</span> <span id="price">23€</span></p>
-                </div>
+                <article class=" list-item one">
+                    <div class="menu-info">
+                      <h4>Paris-Brest</h4>
+                      <p>Revisité</p>
+                    </div>
+                      <div class="price-menu"><strong>18 &euro;</strong></div>
+                      <div class="check-icon"><i class="far fa-check-circle"></i></div>
+                  </article>
+                  <article class=" list-item two">
+                    <div class="menu-info">
+                      <h4>Macaron au chocolat d'exceptio</h4>
+                      <p>Et glace à la vanille de Madagascar</p>
+                    </div>
+                      <div class="price-menu"><strong>22 &euro;</strong></div>
+                      <div class="check-icon"><i class="far fa-check-circle"></i></div>
+                  </article>
+                  <article class=" list-item three">
+                    <div class="menu-info">
+                      <h4>Mousse au chocolat</h4>
+                      <p>Au piment d'espelette et à la truffe noire</p>
+                    </div>
+                      <div class="price-menu"><strong>23 &euro;</strong></div>
+                      <div class="check-icon"><i class="far fa-check-circle"></i></div>
+                  </article>
             </section>
         </div>
         <button id="order"> Commander </button>
 
     </main>
     <footer id="menu-footer">
-        <div id="img-container"><img id='main-logo' src="./images/logo/ohmyfood@2x.svg" alt="logo"></div>
+        <div id="img-container"><a href="index.html"><img id='main-logo' src="./images/logo/ohmyfood@2x.svg" alt="logo"></a></div>
         <p><i class="fas fa-utensils"></i>Proposer un restaurant</p>
         <p><i class="fas fa-hands-helping"></i>Devenir partenaire</p>
         <p>Mentions legales</p>
