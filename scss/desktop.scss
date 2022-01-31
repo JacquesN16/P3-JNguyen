@@ -8,7 +8,7 @@
     }
     
     #index-header{
-        #main-logo{
+        .main-logo{
             width: 20%;
             height: auto;
             display: block;
@@ -240,6 +240,10 @@
                 width: 20px;
                 margin-right: 10px;
             }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
         }
     }  
 
@@ -272,7 +276,9 @@
         flex-direction: column;
         background-color: variables.$bgc-grey;
         img{
-            display:none;
+            height: 350px;
+            width: auto;
+            opacity: 0.5;
         }
 
         #title{
@@ -454,6 +460,10 @@
             i{
                 width: 20px;
                 margin-right: 10px;
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
             }
         }
     }  

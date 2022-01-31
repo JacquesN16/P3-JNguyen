@@ -488,9 +488,10 @@
     font-family: "Roboto", sans-serif;
     padding: 0;
     margin: 0;
+    height: 100%;
   }
 
-  #index-header #main-logo {
+  #index-header .main-logo {
     width: 20%;
     height: auto;
     display: block;
@@ -704,6 +705,10 @@
     width: 20px;
     margin-right: 10px;
   }
+  #index-footer p a {
+    text-decoration: none;
+    color: inherit;
+  }
 
   #menu-header {
     display: flex;
@@ -735,7 +740,9 @@
     background-color: #e7e7e7;
   }
   #menu-main img {
-    display: none;
+    height: 350px;
+    width: auto;
+    opacity: 0.5;
   }
   #menu-main #title {
     background-color: #e7e7e7;
@@ -907,6 +914,10 @@
   #menu-footer p i {
     width: 20px;
     margin-right: 10px;
+  }
+  #menu-footer p a {
+    text-decoration: none;
+    color: inherit;
   }
 }
 @media (max-width: 992px) and (min-width: 768px) {
